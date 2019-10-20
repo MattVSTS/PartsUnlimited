@@ -6,8 +6,12 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: .NET Core CLI
-      uses: baruchiro/github-actions@0.0.1
+    - uses: actions/checkout@master
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '2.2.103' # SDK Version to use.
+    - run: dotnet restore ./
+
       
